@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Converter</title>
+</head>
+<body>
+  <h2>Conversion Tool</h2>
+
+  <div>
+    <button onclick="selectMainFolder()">Select Records Folder</button>
+    <span id="mainPath" style="margin-left: 1rem;"></span>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <button onclick="selectDuplicateFolder()">Select Duplicates Folder</button>
+    <span id="dupPath" style="margin-left: 1rem;"></span>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <button onclick="checkReadiness()">Check readiness</button>
+  </div>
+
+  <div id="loader" style="margin-top: 15px; display: none; font-weight: bold; color: green;">
+    🔄 Checking...
+  </div>
+
+  <div id="filterGroup" style="margin-top: 20px;">
+    <label><input type="radio" name="statusFilter" value="All" checked> All</label>
+    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Converted"> Converted</label>
+    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Not Converted"> Not Converted</label>
+    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Partially Converted"> Partially Converted</label>
+    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Doesn't Ready"> Doesn’t Ready</label>
+  </div>
+  
+  <div id="bulkActionContainer" style="margin-top: 10px; display: none;">
+    <button id="bulkActionBtn" onclick="bulkConvert()">Convert All</button>
+  </div>
+  
+
+  <div id="tableContainer" style="margin-top: 20px;"></div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
