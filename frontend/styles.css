@@ -1,0 +1,281 @@
+/* === Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 10px 30px;
+}
+
+/* === Basic Elements === */
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+option {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+
+fieldset {
+  border-radius: 8px;
+  border: 1px solid #777676;
+  display: flex;
+  align-items: center;
+}
+
+fieldset > legend {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 10px;
+  color: #484848;
+}
+
+fieldset > span {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* === Layout Structure === */
+.setup-box {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+
+.folder-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 40%;
+}
+
+.persent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-message-box {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.notes {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#loader {
+  font-weight: bold;
+  color: green;
+}
+
+/* === Folder Button === */
+.folder-btn > svg {
+  width: 28px;
+  height: 28px;
+  fill: #0b3c67;
+}
+
+.folder-btn > svg:hover {
+  fill: #1e72be;
+}
+
+/* === Check Button === */
+.checking-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  background-color: #1e72be;
+  transition: background 0.3s ease;
+}
+
+.checking-btn:hover {
+  background-color: #174974;
+}
+
+.checking-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* === Analyze Result Section === */
+#analyzeResultContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.table-filter-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+#tableContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+#filterSide {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* === Table Grid === */
+.grid-header-container {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr 1.2fr;
+  font-weight: 600;
+  margin-right: 17px;
+  margin-bottom: 5px;
+}
+
+.grid-header {
+  background-color: #d0e1f6;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #d0e1f6;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.grid-body-wrapper {
+  overflow-y: scroll;
+  max-height: 460px;
+}
+
+.grid-body-container {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr 1.2fr;
+}
+
+.grid-row {
+  display: contents;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  text-align: center;
+}
+
+.box-column {
+  min-width: 160px;
+}
+.action-btn{
+  display: flex;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  background: #0e9f29;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* === Bulk Action + Filter === */
+#bulkActionContainer {
+  height: 45.6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bulkActionBtn {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  font-weight: 600;
+  color: white;
+  background: #0e9f29;
+  border-radius: 5px;
+}
+
+#filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.toggle-switch .slider {
+  width: 34px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 20px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.toggle-switch input:checked + .slider {
+  background: #1e72be;
+}
+
+.toggle-switch .slider::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.toggle-switch input:checked + .slider::before {
+  transform: translateX(14px);
+}

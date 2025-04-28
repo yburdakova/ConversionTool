@@ -3,42 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Converter</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Conversion Tool</h2>
-
-  <div>
-    <button onclick="selectMainFolder()">Select Records Folder</button>
-    <span id="mainPath" style="margin-left: 1rem;"></span>
-  </div>
-
-  <div style="margin-top: 10px;">
-    <button onclick="selectDuplicateFolder()">Select Duplicates Folder</button>
-    <span id="dupPath" style="margin-left: 1rem;"></span>
-  </div>
-
-  <div style="margin-top: 20px;">
-    <button onclick="checkReadiness()">Check readiness</button>
-  </div>
-
-  <div id="loader" style="margin-top: 15px; display: none; font-weight: bold; color: green;">
-    🔄 Checking...
-  </div>
-
-  <div id="filterGroup" style="margin-top: 20px;">
-    <label><input type="radio" name="statusFilter" value="All" checked> All</label>
-    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Converted"> Converted</label>
-    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Not Converted"> Not Converted</label>
-    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Partially Converted"> Partially Converted</label>
-    <label style="margin-left: 10px;"><input type="radio" name="statusFilter" value="Doesn't Ready"> Doesn’t Ready</label>
-  </div>
+  <header>
+    <h2>Conversion Tool</h2>
+  </header>
+  <main>
+    <div class="setup-box">
+      <div class="folder-section">
+        <fieldset>
+          <legend>Select the folder where the records are stored</legend>
+          <button class="folder-btn" onclick="selectMainFolder()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z"/></svg>
+          </button>
+          <span id="mainPath" style="margin-left: 1rem;"></span>
+        </fieldset>
   
-  <div id="bulkActionContainer" style="margin-top: 10px; display: none;">
-    <button id="bulkActionBtn" onclick="bulkConvert()">Convert All</button>
-  </div>
-  
+        <fieldset>
+          <legend>Select the folder for duplicates</legend>
+          <button class="folder-btn" onclick="selectDuplicateFolder()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z"/></svg>
+          </button>
+          <span id="dupPath" style="margin-left: 1rem;"></span>
+        </fieldset>
+      </div>
+      <div class="quality-section">
+        <div class="persent">
+          <label for="qualitySelect"><strong>Select Quality:</strong></label>
+          <select id="qualitySelect" style="margin-left: 0.5rem;">
+            <option value="100">100 - Best (largest file)</option>
+            <option value="75">75 - High</option>
+            <option value="50">50 - Medium</option>
+            <option value="25">25 - Good</option>
+            <option value="10" selected>10 - Low</option>
+            <option value="5">5 - Extreme Compression</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="btn-message-box">
+      <button class="checking-btn" onclick="checkReadiness()">Check readiness</button>
+    
+      <div class="notes" id="notes">
+        <div id="loader" style="display: none; font-weight: bold; color: green;">
+          🔄 Checking...
+        </div>
+      </div>
+    </div>
+   
 
-  <div id="tableContainer" style="margin-top: 20px;"></div>
+    <div id="analyzeResultContainer" style="display: none;">
+      <div class="table-filter-wrapper">
+        <div id="tableContainer"></div>
+    
+        <div id="filterSide">
+          <div id="bulkActionContainer">
+            <button id="bulkActionBtn" style="visibility: hidden;">Action All</button> 
+          </div>
+    
+          <div id="filterGroup"></div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="renderer.js"></script>
 </body>
